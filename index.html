@@ -802,10 +802,22 @@
             background: #fff;
             padding: 1rem;
             border-radius: 12px;
-            max-width: 800px;
-            width: 90%;
             position: relative;
             text-align: center;
+
+            /* Maintain 9:16 aspect ratio */
+            aspect-ratio: 9 / 16;
+
+            /* Responsive sizing */
+            width: 90vw;
+            max-width: 400px;
+            height: 90vh;
+
+            /* Optional: Center alignment control */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
         }
 
         .video-content h3 {
@@ -816,9 +828,14 @@
 
         .video-content video {
             width: 100%;
-            height: auto;
+            height: 70vh;
             border-radius: 8px;
+            aspect-ratio: 9 / 16;
+            object-fit: cover;
+            /* Makes it look like Instagram reels */
         }
+
+
 
         .close-btn {
             position: absolute;
