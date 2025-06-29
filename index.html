@@ -874,6 +874,18 @@
         display: none; /* no overlay for images */
       }
 
+      .image-title {
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: white;
+        text-align: center;
+        margin-bottom: 0.5rem;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        padding: 8px;
+        border-top-left-radius: 12px;
+        border-top-right-radius: 12px;
+      }
+
       #closeImageModal {
         position: absolute;
         top: 10px;
@@ -1135,6 +1147,7 @@
           data-video="videos/cinematic.mp4"
           data-title="Cinematic Reel"
         >
+          <div class="image-title">Cinematic Reel</div>
           <div class="portfolio-overlay">
             <div class="play-btn"><i class="fas fa-play"></i></div>
           </div>
@@ -1150,6 +1163,7 @@
           data-video="videos/highlight.mp4"
           data-title="Highlight Video"
         >
+          <div class="image-title">Highlight Video</div>
           <div class="portfolio-overlay">
             <div class="play-btn"><i class="fas fa-play"></i></div>
           </div>
@@ -1165,6 +1179,8 @@
           data-video="videos/property_reel.mp4"
           data-title="Voice Over Reel"
         >
+          <div class="image-title">Voice Over Reel</div>
+
           <div class="portfolio-overlay">
             <div class="play-btn"><i class="fas fa-play"></i></div>
           </div>
@@ -1180,6 +1196,7 @@
           data-video="videos/wedding_reel.mp4"
           data-title="Wedding Reel"
         >
+          <div class="image-title">Wedding Reel</div>
           <div class="portfolio-overlay">
             <div class="play-btn"><i class="fas fa-play"></i></div>
           </div>
@@ -1197,6 +1214,7 @@
           data-image="photos/1.jpg"
           data-title="Social Campaign"
         >
+          <div class="image-title">30-Day Growth Snapshot</div>
           <!-- Removed play icon -->
           <img
             src="photos/1.jpg"
@@ -1218,6 +1236,7 @@
           data-image="photos/2.jpg"
           data-title="Social Campaign"
         >
+          <div class="image-title">Engagement Insights</div>
           <!-- Removed play icon -->
           <img
             src="photos/2.jpg"
@@ -1239,6 +1258,7 @@
           data-image="photos/3.jpg"
           data-title="Social Campaign"
         >
+          <div class="image-title">Reach & Results</div>
           <!-- Removed play icon -->
           <img
             src="photos/3.jpg"
@@ -1259,6 +1279,7 @@
           data-image="photos/4.jpg"
           data-title="Social Campaign"
         >
+          <div class="image-title">Organic Reach Breakdown</div>
           <!-- Removed play icon -->
           <img
             src="photos/4.jpg"
@@ -1280,6 +1301,7 @@
           data-image="photos/5.jpg"
           data-title="Social Campaign"
         >
+          <div class="image-title">Instagram Growth Report</div>
           <!-- Removed play icon -->
           <img
             src="photos/5.jpg"
@@ -1419,8 +1441,8 @@
     <!-- Image Modal -->
     <div id="imageModal" class="image-modal">
       <span class="close-btn" id="closeImageModal">&times;</span>
-      <img id="modalImage" src="" alt="Preview" />
       <h3 id="imageTitle"></h3>
+      <img id="modalImage" src="" alt="Preview" />
     </div>
 
     <!-- multi image modal end -->
