@@ -882,6 +882,53 @@
         color: white;
         cursor: pointer;
       }
+
+      /* Multi image modal css  */
+      .gallery-modal {
+        display: none;
+        position: fixed;
+        z-index: 9999;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: rgba(0, 0, 0, 0.95);
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        overflow-y: auto;
+        padding: 2rem 1rem;
+      }
+
+      .gallery-modal.active {
+        display: flex;
+      }
+
+      .gallery-content {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+        max-width: 500px;
+        width: 100%;
+        margin: 0 auto;
+      }
+
+      .gallery-content img {
+        width: 100%;
+        height: auto;
+        border-radius: 12px;
+        object-fit: cover;
+      }
+
+      #closeGalleryModal {
+        position: fixed;
+        top: 16px;
+        right: 24px;
+        font-size: 2rem;
+        color: white;
+        cursor: pointer;
+        z-index: 10001;
+      }
     </style>
   </head>
 
@@ -1248,31 +1295,100 @@
 
         <!-- Image Portfolio Item END -->
 
+        <!-- Graphic Designing Start -->
+
         <div
-          class="portfolio-item"
+          class="portfolio-item image-gallery"
           data-category="motion"
           data-aos="fade-up"
           data-aos-delay="200"
+          data-title="Hotel"
         >
-          <div class="portfolio-overlay">
-            <div class="play-btn">
-              <i class="fas fa-play"></i>
-            </div>
-          </div>
-          <div
+          <img
+            src="photos/graphic_design/hotel/1.png"
+            alt="Hotel"
             style="
-              background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+              width: 100%;
               height: 100%;
-              display: flex;
-              align-items: center;
-              justify-content: center;
-              color: white;
-              font-size: 1.2rem;
+              object-fit: cover;
+              aspect-ratio: 9 / 16;
             "
-          >
-            Motion Graphics
-          </div>
+          />
         </div>
+        <div
+          class="portfolio-item image-gallery"
+          data-category="motion"
+          data-aos="fade-up"
+          data-aos-delay="200"
+          data-title="Banner"
+        >
+          <img
+            src="photos/graphic_design/banner/1.png"
+            alt="Banner"
+            style="
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+              aspect-ratio: 9 / 16;
+            "
+          />
+        </div>
+        <div
+          class="portfolio-item image-gallery"
+          data-category="motion"
+          data-aos="fade-up"
+          data-aos-delay="200"
+          data-title="Bear Shop"
+        >
+          <img
+            src="photos/graphic_design/bar/1.png"
+            alt="Bear Shop"
+            style="
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+              aspect-ratio: 9 / 16;
+            "
+          />
+        </div>
+        <div
+          class="portfolio-item image-gallery"
+          data-category="motion"
+          data-aos="fade-up"
+          data-aos-delay="200"
+          data-title="Gym Brand"
+        >
+          <img
+            src="photos/graphic_design/gym/1.png"
+            alt="Gym Brand"
+            style="
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+              aspect-ratio: 9 / 16;
+            "
+          />
+        </div>
+        <div
+          class="portfolio-item image-gallery"
+          data-category="motion"
+          data-aos="fade-up"
+          data-aos-delay="200"
+          data-title="Social Media Posts"
+        >
+          <img
+            src="photos/graphic_design/social_media/1.png"
+            alt="Social Media Posts"
+            style="
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+              aspect-ratio: 9 / 16;
+            "
+          />
+        </div>
+
+        <!-- Graphic Designing End -->
 
         <!-- <div class="portfolio-item" data-category="motion" data-aos="fade-up" data-aos-delay="500">
                 <div class="portfolio-overlay">
@@ -1305,6 +1421,15 @@
       <span class="close-btn" id="closeImageModal">&times;</span>
       <img id="modalImage" src="" alt="Preview" />
       <h3 id="imageTitle"></h3>
+    </div>
+
+    <!-- multi image modal end -->
+    <div id="galleryModal" class="gallery-modal">
+      <span class="close-btn" id="closeGalleryModal">&times;</span>
+      <h3 id="galleryTitle" style="color: white; margin-bottom: 1rem"></h3>
+      <div class="gallery-content" id="galleryImages">
+        <!-- Images will be injected here -->
+      </div>
     </div>
 
     <!-- Testimonials Section -->
@@ -1889,7 +2014,7 @@
       document.body.style.transition = "opacity 0.5s ease";
     </script>
 
-    <!-- Image Modal Script -->
+    <!-- Image Modal Script Start-->
     <script>
       document.addEventListener("DOMContentLoaded", function () {
         const imageModal = document.getElementById("imageModal");
@@ -1921,5 +2046,69 @@
         });
       });
     </script>
+    <!-- Image Modal Script End-->
+
+    <!-- Multi Image Modal Script End-->
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const galleryModal = document.getElementById("galleryModal");
+        const galleryImages = document.getElementById("galleryImages");
+        const galleryTitle = document.getElementById("galleryTitle");
+        const closeGalleryModal = document.getElementById("closeGalleryModal");
+
+        const imageGroups = {
+          Hotel: [
+            "photos/graphic_design/hotel/1.png",
+            "photos/graphic_design/hotel/2.png",
+            "photos/graphic_design/hotel/3.png",
+          ],
+          Banner: ["photos/graphic_design/banner/1.png"],
+          "Bear Shop": [
+            "photos/graphic_design/bar/1.png",
+            "photos/graphic_design/bar/2.png",
+            "photos/graphic_design/bar/3.png",
+          ],
+          "Gym Brand": [
+            "photos/graphic_design/gym/1.png",
+            "photos/graphic_design/gym/2.png",
+            "photos/graphic_design/gym/3.png",
+          ],
+          "Social Media Posts": ["photos/graphic_design/social_media/1.png"],
+        };
+
+        document.querySelectorAll(".image-gallery").forEach((item) => {
+          item.addEventListener("click", () => {
+            const title = item.getAttribute("data-title");
+            const images = imageGroups[title] || [];
+
+            galleryImages.innerHTML = "";
+            galleryTitle.textContent = title;
+
+            images.forEach((src) => {
+              const img = document.createElement("img");
+              img.src = src;
+              img.alt = title;
+              galleryImages.appendChild(img);
+            });
+
+            galleryModal.classList.add("active");
+          });
+        });
+
+        closeGalleryModal.addEventListener("click", () => {
+          galleryModal.classList.remove("active");
+          galleryImages.innerHTML = "";
+        });
+
+        window.addEventListener("click", (e) => {
+          if (e.target === galleryModal) {
+            galleryModal.classList.remove("active");
+            galleryImages.innerHTML = "";
+          }
+        });
+      });
+    </script>
+
+    <!-- Multi Image Modal Script End-->
   </body>
 </html>
