@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Alex Carter - Video Editor & Social Media Manager</title>
+    <title>Mark Echo Studio - Video Editor & Social Media Manager</title>
     <meta
       name="description"
       content="Professional video editor and social media manager creating engaging content that drives results."
@@ -495,6 +495,17 @@
         transform: scale(1.05);
       }
 
+      .portfolio-item.vertical-preview {
+        aspect-ratio: 9/16;
+      }
+
+      .preview-video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+
       .portfolio-overlay {
         position: absolute;
         top: 0;
@@ -828,7 +839,49 @@
         cursor: pointer;
       }
 
-      /* video modal end */
+      .image-modal {
+        display: none;
+        position: fixed;
+        z-index: 9999;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: rgba(0, 0, 0, 0.9);
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+      }
+
+      .image-modal.active {
+        display: flex;
+      }
+
+      .image-modal img {
+        max-width: 90vw;
+        max-height: 80vh;
+        object-fit: contain;
+        border-radius: 8px;
+      }
+
+      .image-modal h3 {
+        color: white;
+        margin-top: 1rem;
+        font-size: 1.2rem;
+      }
+
+      .image-item .portfolio-overlay {
+        display: none; /* no overlay for images */
+      }
+
+      #closeImageModal {
+        position: absolute;
+        top: 10px;
+        right: 20px;
+        font-size: 2rem;
+        color: white;
+        cursor: pointer;
+      }
     </style>
   </head>
 
@@ -958,14 +1011,29 @@
             </p>
           </div>
 
-          <!-- <div class="service-card" data-aos="fade-up" data-aos-delay="300">
-                    <div class="service-icon">
-                        <i class="fas fa-palette"></i>
-                    </div>
-                    <h3 class="service-title">Motion Graphics</h3>
-                    <p class="service-description">Eye-catching motion graphics and animations that make your content
-                        stand out and communicate your message effectively.</p>
-                </div> -->
+          <div class="service-card" data-aos="fade-up" data-aos-delay="300">
+            <div class="service-icon">
+              <i class="fas fa-paint-brush"></i>
+            </div>
+            <h3 class="service-title">Graphic Designing</h3>
+            <p class="service-description">
+              Creative and impactful graphic design services including branding,
+              social media creatives, banners, logos, and print-ready designs
+              tailored to visually elevate your brand identity.
+            </p>
+          </div>
+
+          <div class="service-card" data-aos="fade-up" data-aos-delay="400">
+            <div class="service-icon">
+              <i class="fas fa-code"></i>
+            </div>
+            <h3 class="service-title">Website Development</h3>
+            <p class="service-description">
+              Custom website development services with responsive design, fast
+              loading speed, SEO optimization, and user-friendly interfaces to
+              help your business grow online.
+            </p>
+          </div>
 
           <div class="service-card" data-aos="fade-up" data-aos-delay="400">
             <div class="service-icon">
@@ -1016,131 +1084,167 @@
           data-category="video"
           data-aos="fade-up"
           data-video="videos/cinematic.mp4"
-          data-title="Corporate Video"
+          data-title="Cinematic Reel"
         >
           <div class="portfolio-overlay">
-            <div class="play-btn">
-              <i class="fas fa-play"></i>
-            </div>
+            <div class="play-btn"><i class="fas fa-play"></i></div>
           </div>
-          <div
-            style="
-              background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-              height: 100%;
-              display: flex;
-              align-items: center;
-              justify-content: center;
-              color: white;
-              font-size: 1.2rem;
-            "
-          >
-            Corporate Video
-          </div>
+          <video class="preview-video" muted autoplay loop playsinline>
+            <source src="videos/cinematic.mp4" type="video/mp4" />
+          </video>
         </div>
+
         <div
           class="portfolio-item"
           data-category="video"
           data-aos="fade-up"
           data-video="videos/highlight.mp4"
-          data-title="Corporate Video"
+          data-title="Highlight Video"
         >
           <div class="portfolio-overlay">
-            <div class="play-btn">
-              <i class="fas fa-play"></i>
-            </div>
+            <div class="play-btn"><i class="fas fa-play"></i></div>
           </div>
-          <div
-            style="
-              background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-              height: 100%;
-              display: flex;
-              align-items: center;
-              justify-content: center;
-              color: white;
-              font-size: 1.2rem;
-            "
-          >
-            Corporate Video
-          </div>
+          <video class="preview-video" muted autoplay loop playsinline>
+            <source src="videos/highlight.mp4" type="video/mp4" />
+          </video>
         </div>
+
         <div
           class="portfolio-item"
           data-category="video"
           data-aos="fade-up"
           data-video="videos/property_reel.mp4"
-          data-title="Corporate Video"
+          data-title="Voice Over Reel"
         >
           <div class="portfolio-overlay">
-            <div class="play-btn">
-              <i class="fas fa-play"></i>
-            </div>
+            <div class="play-btn"><i class="fas fa-play"></i></div>
           </div>
-          <div
-            style="
-              background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-              height: 100%;
-              display: flex;
-              align-items: center;
-              justify-content: center;
-              color: white;
-              font-size: 1.2rem;
-            "
-          >
-            Corporate Video
-          </div>
+          <video class="preview-video" muted autoplay loop playsinline>
+            <source src="videos/property_reel.mp4" type="video/mp4" />
+          </video>
         </div>
+
         <div
           class="portfolio-item"
           data-category="video"
           data-aos="fade-up"
           data-video="videos/wedding_reel.mp4"
-          data-title="Corporate Video"
+          data-title="Wedding Reel"
         >
           <div class="portfolio-overlay">
-            <div class="play-btn">
-              <i class="fas fa-play"></i>
-            </div>
+            <div class="play-btn"><i class="fas fa-play"></i></div>
           </div>
-          <div
-            style="
-              background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-              height: 100%;
-              display: flex;
-              align-items: center;
-              justify-content: center;
-              color: white;
-              font-size: 1.2rem;
-            "
-          >
-            Corporate Video
-          </div>
+          <video class="preview-video" muted autoplay loop playsinline>
+            <source src="videos/wedding_reel.mp4" type="video/mp4" />
+          </video>
         </div>
 
+        <!-- Image Portfolio Item Start -->
         <div
-          class="portfolio-item"
+          class="portfolio-item image-item"
           data-category="social"
           data-aos="fade-up"
           data-aos-delay="100"
+          data-image="photos/1.jpg"
+          data-title="Social Campaign"
         >
-          <div class="portfolio-overlay">
-            <div class="play-btn">
-              <i class="fas fa-play"></i>
-            </div>
-          </div>
-          <div
+          <!-- Removed play icon -->
+          <img
+            src="photos/1.jpg"
+            alt="Social Campaign"
             style="
-              background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+              width: 100%;
               height: 100%;
-              display: flex;
-              align-items: center;
-              justify-content: center;
-              color: white;
-              font-size: 1.2rem;
+              object-fit: cover;
+              aspect-ratio: 9/16;
             "
-          >
-            Social Campaign
-          </div>
+          />
         </div>
+
+        <div
+          class="portfolio-item image-item"
+          data-category="social"
+          data-aos="fade-up"
+          data-aos-delay="100"
+          data-image="photos/2.jpg"
+          data-title="Social Campaign"
+        >
+          <!-- Removed play icon -->
+          <img
+            src="photos/2.jpg"
+            alt="Social Campaign"
+            style="
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+              aspect-ratio: 9/16;
+            "
+          />
+        </div>
+
+        <div
+          class="portfolio-item image-item"
+          data-category="social"
+          data-aos="fade-up"
+          data-aos-delay="100"
+          data-image="photos/3.jpg"
+          data-title="Social Campaign"
+        >
+          <!-- Removed play icon -->
+          <img
+            src="photos/3.jpg"
+            alt="Social Campaign"
+            style="
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+              aspect-ratio: 9/16;
+            "
+          />
+        </div>
+        <div
+          class="portfolio-item image-item"
+          data-category="social"
+          data-aos="fade-up"
+          data-aos-delay="100"
+          data-image="photos/4.jpg"
+          data-title="Social Campaign"
+        >
+          <!-- Removed play icon -->
+          <img
+            src="photos/4.jpg"
+            alt="Social Campaign"
+            style="
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+              aspect-ratio: 9/16;
+            "
+          />
+        </div>
+
+        <div
+          class="portfolio-item image-item"
+          data-category="social"
+          data-aos="fade-up"
+          data-aos-delay="100"
+          data-image="photos/5.jpg"
+          data-title="Social Campaign"
+        >
+          <!-- Removed play icon -->
+          <img
+            src="photos/5.jpg"
+            alt="Social Campaign"
+            style="
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+              aspect-ratio: 9/16;
+            "
+          />
+        </div>
+
+        <!-- Image Portfolio Item END -->
 
         <!-- <div class="portfolio-item" data-category="motion" data-aos="fade-up" data-aos-delay="200">
                 <div class="portfolio-overlay">
@@ -1152,58 +1256,6 @@
                     style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); height: 100%; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.2rem;">
                     Motion Graphics</div>
             </div> -->
-
-        <div
-          class="portfolio-item"
-          data-category="video"
-          data-aos="fade-up"
-          data-aos-delay="300"
-        >
-          <div class="portfolio-overlay">
-            <div class="play-btn">
-              <i class="fas fa-play"></i>
-            </div>
-          </div>
-          <div
-            style="
-              background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
-              height: 100%;
-              display: flex;
-              align-items: center;
-              justify-content: center;
-              color: #333;
-              font-size: 1.2rem;
-            "
-          >
-            Product Demo
-          </div>
-        </div>
-
-        <div
-          class="portfolio-item"
-          data-category="social"
-          data-aos="fade-up"
-          data-aos-delay="400"
-        >
-          <div class="portfolio-overlay">
-            <div class="play-btn">
-              <i class="fas fa-play"></i>
-            </div>
-          </div>
-          <div
-            style="
-              background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
-              height: 100%;
-              display: flex;
-              align-items: center;
-              justify-content: center;
-              color: #333;
-              font-size: 1.2rem;
-            "
-          >
-            Brand Story
-          </div>
-        </div>
 
         <!-- <div class="portfolio-item" data-category="motion" data-aos="fade-up" data-aos-delay="500">
                 <div class="portfolio-overlay">
@@ -1229,6 +1281,13 @@
           Your browser does not support HTML5 video.
         </video>
       </div>
+    </div>
+
+    <!-- Image Modal -->
+    <div id="imageModal" class="image-modal">
+      <span class="close-btn" id="closeImageModal">&times;</span>
+      <img id="modalImage" src="" alt="Preview" />
+      <h3 id="imageTitle"></h3>
     </div>
 
     <!-- Testimonials Section -->
@@ -1469,6 +1528,16 @@
           }
         });
 
+        // NEW: detect vertical previews for thumbnail videos
+        document.querySelectorAll(".preview-video").forEach((preview) => {
+          preview.addEventListener("loadedmetadata", () => {
+            const isVertical = preview.videoHeight > preview.videoWidth;
+            if (isVertical) {
+              preview.parentElement.classList.add("vertical-preview");
+            }
+          });
+        });
+
         // Close modal functionality (optional helper)
         document.getElementById("closeModal").addEventListener("click", () => {
           modalVideo.pause();
@@ -1572,9 +1641,11 @@
       // Typing animation
       const typingText = document.getElementById("typingText");
       const phrases = [
-        "engaging video content",
+        "Engaging Video Content",
         "Viral-Worthy Clips",
         "Cinematic Edits",
+        "Voice-Over Edits",
+        "Wedding Edits",
         "Seamless Storytelling",
       ];
       let phraseIndex = 0;
@@ -1803,6 +1874,39 @@
       // Set initial body opacity
       document.body.style.opacity = "0";
       document.body.style.transition = "opacity 0.5s ease";
+    </script>
+
+    <!-- Image Modal Script -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const imageModal = document.getElementById("imageModal");
+        const modalImage = document.getElementById("modalImage");
+        const imageTitle = document.getElementById("imageTitle");
+        const closeImageModal = document.getElementById("closeImageModal");
+
+        document.querySelectorAll(".image-item").forEach((item) => {
+          item.addEventListener("click", () => {
+            const imageUrl = item.getAttribute("data-image");
+            const title = item.getAttribute("data-title") || "";
+
+            modalImage.src = imageUrl;
+            imageTitle.textContent = title;
+            imageModal.classList.add("active");
+          });
+        });
+
+        closeImageModal.addEventListener("click", () => {
+          imageModal.classList.remove("active");
+          modalImage.src = "";
+        });
+
+        window.addEventListener("click", (e) => {
+          if (e.target === imageModal) {
+            imageModal.classList.remove("active");
+            modalImage.src = "";
+          }
+        });
+      });
     </script>
   </body>
 </html>
