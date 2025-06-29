@@ -560,18 +560,17 @@
         }
       }
 
-      /* ✅ Index fileContact Section Layout */
+      /* ✅ Contact Section Layout */
       .contact {
         background: #1a1a2e;
         padding: 60px 20px;
       }
 
-      .section-title {
-        font-size: 2.2rem;
-        text-align: center;
-        margin-bottom: 40px;
-        font-weight: 600;
-        color: #333;
+      .contact .section-title {
+        font-size: 2.5rem;
+        font-weight: 800;
+        color: var(--text-primary);
+        margin-bottom: 2rem;
       }
 
       .contact-content {
@@ -624,29 +623,67 @@
       }
 
       .social-icons {
+        margin-top: 12px;
         display: flex;
-        gap: 14px;
+        gap: 12px;
       }
 
       .social-link {
-        width: 52px;
-        height: 52px;
-        background: linear-gradient(135deg, #4f46e5, #6366f1);
+        width: 48px;
+        height: 48px;
         color: white;
         display: flex;
         align-items: center;
         justify-content: center;
-        border-radius: 16px;
-        clip-path: url(#squircleClip);
-        transition: all 0.3s ease;
-        font-size: 1.2rem;
-        text-decoration: none;
-        box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+        border-radius: 50%;
+        font-size: 1.1rem;
+        transition: transform 0.3s, box-shadow 0.3s;
       }
 
       .social-link:hover {
         transform: scale(1.1);
-        box-shadow: 0 6px 20px rgba(99, 102, 241, 0.4);
+        box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+      }
+
+      .contact-info a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      .contact-info a:hover {
+        text-decoration: underline;
+      }
+
+      .contact-icon.badge {
+        width: 48px;
+        height: 48px;
+        background: #e8e8e8;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .contact-icon.badge i {
+        font-size: 1.2rem;
+        color: #333;
+      }
+
+      @media (max-width: 768px) {
+        .contact-content {
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .contact-info {
+          align-items: center;
+        }
+
+        .contact-item {
+          width: 100%;
+          justify-content: center;
+          text-align: center;
+        }
       }
     </style>
   </head>
@@ -681,7 +718,7 @@
       <div class="hero-content">
         <h1 class="hero-title">About Our Team</h1>
         <p class="hero-subtitle">
-          Meet the passionate individuals behind our success
+          Creative minds. Strategic thinkers. Results-driven professionals.
         </p>
       </div>
     </section>
@@ -690,10 +727,20 @@
     <section class="section" id="about">
       <div class="about-intro">
         <p>
-          We are a dynamic team of creative professionals, developers, and
-          strategists who are passionate about delivering exceptional results.
-          Our diverse backgrounds and complementary skills enable us to tackle
-          complex challenges and create innovative solutions for our clients.
+          We are a multidisciplinary team of designers, developers, marketers,
+          and content creators driven by a shared passion for excellence. With a
+          deep understanding of digital trends and user behavior, we craft
+          experiences that not only look good but deliver measurable results.
+        </p>
+        <p>
+          From brand identity to web development, video production to social
+          media strategy — we bring ideas to life with precision, creativity,
+          and a data-backed approach. Every project is a collaboration, and
+          every client is a partner in innovation.
+        </p>
+        <p>
+          Our goal is simple: to help businesses grow, connect, and make an
+          impact in the digital world.
         </p>
       </div>
     </section>
@@ -1044,31 +1091,37 @@
     <!-- Index File Contact Section -->
     <section class="contact" id="contact">
       <div class="section">
-        <h2
-          class="section-title"
-          style="font-size: 2rem; font-weight: 900"
-          data-aos="fade-up"
-        >
-          Ready to Work Together?
+        <h2 class="section-title" data-aos="fade-up">
+          Let’s Build Something Great Together
         </h2>
         <div class="contact-content">
-          <div class="contact-info" data-aos="fade-right">
+          <div class="contact-info" data-aos="fade-up">
             <div class="contact-item">
-              <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+              <div class="contact-icon badge email">
+                <i class="fas fa-envelope"></i>
+              </div>
               <div>
                 <h4>Email</h4>
-                <p>nikhilsadwani42@gmail.com</p>
+                <p>
+                  <a href="mailto:nikhilsadwani42@gmail.com"
+                    >nikhilsadwani42@gmail.com</a
+                  >
+                </p>
               </div>
             </div>
+
             <div class="contact-item">
-              <div class="contact-icon"><i class="fas fa-phone"></i></div>
+              <div class="contact-icon badge phone">
+                <i class="fas fa-phone"></i>
+              </div>
               <div>
                 <h4>Phone</h4>
-                <p>+91 7742319827</p>
+                <p><a href="tel:+917742319827">+91 77423 19827</a></p>
               </div>
             </div>
+
             <div class="contact-item">
-              <div class="contact-icon">
+              <div class="contact-icon badge location">
                 <i class="fas fa-map-marker-alt"></i>
               </div>
               <div>
@@ -1077,28 +1130,44 @@
               </div>
             </div>
 
-            <!-- Social Media Icons -->
-            <div class="social-wrapper" data-aos="fade-left">
+            <div class="social-wrapper" data-aos="fade-up">
+              <h4 style="color: #fff; margin-top: 20px">Connect with Me</h4>
               <div class="social-icons">
                 <a
                   href="https://wa.me/917742319827"
-                  class="social-link whatsapp"
+                  class="social-link"
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="WhatsApp"
+                  style="background: #25d366"
                 >
                   <i class="fab fa-whatsapp"></i>
                 </a>
-                <!-- <a href="#" class="social-link linkedin" aria-label="LinkedIn">
-                    <i class="fab fa-linkedin-in"></i>
-                  </a> -->
-                <!-- <a href="#" class="social-link youtube" aria-label="YouTube">
-                                  <i class="fab fab fa-facebook"></i>
-                              </a> -->
                 <!-- <a
-                    href="#"
-                    class="social-link instagram"
+                    href="https://www.linkedin.com/in/nikhilsadwani/"
+                    class="social-link"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="LinkedIn"
+                    style="background: #0077b5"
+                  >
+                    <i class="fab fa-linkedin-in"></i>
+                  </a>
+                  <a
+                    href="https://www.instagram.com/yourprofile"
+                    class="social-link"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     aria-label="Instagram"
+                    style="
+                      background: radial-gradient(
+                        circle at 30% 107%,
+                        #fdf497 0%,
+                        #fd5949 45%,
+                        #d6249f 60%,
+                        #285aeb 90%
+                      );
+                    "
                   >
                     <i class="fab fa-instagram"></i>
                   </a> -->
