@@ -978,6 +978,43 @@
         cursor: pointer;
         z-index: 10001;
       }
+
+      /* Responsive navigation adjustments */
+      .desktop-only {
+        display: block;
+      }
+
+      .mobile-only {
+        display: none;
+      }
+
+      @media (max-width: 768px) {
+        .nav-links {
+          display: none;
+          flex-direction: column;
+          background: rgba(10, 10, 15, 0.98);
+          position: absolute;
+          top: 100%;
+          right: 0;
+          width: 100%;
+          padding: 1rem 2rem;
+          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .nav-links.active {
+          display: flex;
+        }
+
+        .desktop-only {
+          display: none;
+        }
+
+        .mobile-only {
+          display: block;
+          margin-top: 1rem;
+          text-align: center;
+        }
+      }
     </style>
   </head>
 
@@ -986,18 +1023,19 @@
     <nav class="navbar" id="navbar">
       <div class="nav-container">
         <div class="logo">MarkEcho Studio</div>
-        <ul class="nav-links">
+
+        <ul class="nav-links" id="navLinks">
           <li><a href="#home">Home</a></li>
-          <!-- <li><a href="#about">About</a></li> -->
           <li><a href="#services">Services</a></li>
           <li><a href="#portfolio">Portfolio</a></li>
           <li><a href="#testimonials">Reviews</a></li>
-          <!-- <li><a href="about.html#team">Team</a></li> -->
           <li><a href="#contact">Contact</a></li>
+          <li class="mobile-only">
+            <a href="about.html" class="btn btn-primary">About us</a>
+          </li>
         </ul>
-        <div class="">
-          <a href="about.html" class="btn btn-primary">About us</a>
-        </div>
+
+        <a href="about.html" class="btn btn-primary desktop-only">About us</a>
 
         <button class="mobile-menu" id="mobileMenu">
           <i class="fas fa-bars"></i>
@@ -2191,5 +2229,23 @@
     </script>
 
     <!-- Multi Image Modal Script End-->
+
+    <!-- Responsiveness -->
+    <script>
+      const mobileMenuBtn = document.getElementById("mobileMenu");
+      const navLinksByID = document.getElementById("navLinks");
+
+      mobileMenuBtn.addEventListener("click", () => {
+        navLinksByID.classList.toggle("active");
+      });
+
+      // Close menu when a link is clicked
+      const navItems = navLinksByID.querySelectorAll("a");
+      navItems.forEach((link) => {
+        link.addEventListener("click", () => {
+          navLinksByID.classList.remove("active");
+        });
+      });
+    </script>
   </body>
 </html>

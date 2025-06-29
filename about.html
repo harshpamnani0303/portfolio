@@ -685,6 +685,51 @@
           text-align: center;
         }
       }
+      /* Responsive nav styles */
+      .desktop-only {
+        display: block;
+      }
+
+      .mobile-only {
+        display: none;
+      }
+      @media (max-width: 768px) {
+        .nav-links {
+          position: absolute;
+          top: 100%;
+          right: 0;
+          width: 100%;
+          background: var(--primary-bg);
+          flex-direction: column;
+          align-items: center;
+          gap: 1.5rem;
+          padding: 1.5rem 0;
+          display: none;
+          z-index: 999;
+        }
+
+        .nav-links.active {
+          display: flex;
+        }
+
+        .desktop-only {
+          display: none;
+        }
+
+        .mobile-only {
+          display: block;
+        }
+
+        .mobile-menu {
+          display: block;
+        }
+      }
+
+      @media (min-width: 769px) {
+        .mobile-only {
+          display: none !important;
+        }
+      }
     </style>
   </head>
 
@@ -693,22 +738,28 @@
     <nav class="navbar" id="navbar">
       <div class="nav-container">
         <div class="logo">MarkEcho Studio</div>
-        <ul class="nav-links">
-          <li><a href="index.html">Home</a></li>
-          <!-- <li><a href="#about">About</a></li> -->
-          <li><a href="index.html#services">Services</a></li>
-          <li><a href="index.html#portfolio">Portfolio</a></li>
-          <li><a href="index.html#testimonials">Reviews</a></li>
-          <!-- <li><a href="#team">Team</a></li> -->
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-        <div class="">
-          <a href="about.html" class="btn btn-primary">About us</a>
-        </div>
 
+        <!-- Hamburger menu icon -->
         <button class="mobile-menu" id="mobileMenu">
           <i class="fas fa-bars"></i>
         </button>
+
+        <!-- Navigation Links -->
+        <ul class="nav-links" id="navLinks">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="index.html#services">Services</a></li>
+          <li><a href="index.html#portfolio">Portfolio</a></li>
+          <li><a href="index.html#testimonials">Reviews</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+          <li class="mobile-only">
+            <a href="about.html" class="btn btn-primary">About Us</a>
+          </li>
+        </ul>
+
+        <!-- Visible only on desktop -->
+        <div class="desktop-only">
+          <a href="about.html" class="btn btn-primary">About us</a>
+        </div>
       </div>
     </nav>
 
@@ -1155,6 +1206,23 @@
       if (statsSection) {
         statsObserver.observe(statsSection);
       }
+    </script>
+
+    <!-- Responsiveness -->
+    <script>
+      const mobileMenuBtn = document.getElementById("mobileMenu");
+      const navLinks = document.getElementById("navLinks");
+
+      mobileMenuBtn.addEventListener("click", () => {
+        navLinks.classList.toggle("active");
+      });
+
+      // Close menu on clicking a link
+      navLinks.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", () => {
+          navLinks.classList.remove("active");
+        });
+      });
     </script>
   </body>
 </html>
